@@ -1,5 +1,6 @@
 package br.com.giulianabezerra.desafio_todolist.controller;
 
+
 import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.giulianabezerra.desafio_todolist.entity.Todo;
 import br.com.giulianabezerra.desafio_todolist.service.TodoSevice;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -26,7 +28,7 @@ public class TodoController {
     }
 
     @PostMapping
-    List<Todo> create(@RequestBody Todo todo){
+    List<Todo> create(@RequestBody @Valid Todo todo){
         return todoSevice.create(todo);
     }
 
@@ -36,7 +38,7 @@ public class TodoController {
     }
 
     @PutMapping
-    List<Todo> update(@RequestBody Todo todo){
+    List<Todo> update(@RequestBody @Valid Todo todo){
         return todoSevice.update(todo);
     }
 
@@ -46,4 +48,6 @@ public class TodoController {
     }
 
 
+
+    
 }
